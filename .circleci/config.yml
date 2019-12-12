@@ -1,14 +1,9 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: "circleci/node:9.6.1"
-      
+    machine: true
     steps:
       - checkout
-      - docker pull jonahtn/train:first
-      - docker container run jonahtn/train:first
+      - run: docker pull jonahtn/train:first
+      - run: docker container run jonahtn/train:first
       
-      - store_artifacts:
-        path: /tmp/artifacts
-        destination: build
