@@ -2,11 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: docker
-
-    working_directory: ~/repo
-
+      - image: "circleci/node:9.6.1"
+      
     steps:
       - checkout
       - docker pull jonahtn/train:first
       - docker container run jonahtn/train:first
+      
+      - store_artifacts:
+        path: /tmp/artifacts
+        destination: build
