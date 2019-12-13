@@ -11,3 +11,5 @@ jobs:
       # Run container
       - run: docker container run jonahtn/train:first
       
+      - store_test_results:
+        path: /tmp/test-results
